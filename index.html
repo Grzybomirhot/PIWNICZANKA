@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niespodzianka</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 20%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kliknij tutaj!</h1>
+    <script>
+        function playAudio() {
+            let audio = new Audio("https://www.myinstants.com/media/sounds/trollolol.mp3"); // <-- Podmień link na swój dźwięk!
+            audio.loop = true;  // Zapętla dźwięk
+            audio.play();
+
+            // Jeśli ktoś wyciszy, próbujemy ponownie
+            setInterval(() => {
+                if (audio.paused) {
+                    audio.play();
+                }
+            }, 1000);
+        }
+        // Automatyczne odtworzenie po kliknięciu gdziekolwiek
+        document.body.addEventListener("click", playAudio, { once: true });
+    </script>
+</body>
+</html>
